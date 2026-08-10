@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>(function(){var t=localStorage.getItem("theme");if(t==="light"){document.documentElement.setAttribute("data-theme","light");}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Mohammad Moontasir</title>
+<meta name="description" content="Full portfolio of Mohammad Moontasir — video ads, explainers, documentaries, talking-head and motion design work.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://player.vimeo.com">
+<link rel="preconnect" href="https://i.vimeocdn.com" crossorigin>
+<link rel="dns-prefetch" href="https://player.vimeo.com">
+<link rel="dns-prefetch" href="https://i.vimeocdn.com">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta name="theme-color" content="#0a0b0d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Portfolio — Mohammad Moontasir">
+<meta property="og:description" content="Full portfolio of video ads, explainers, documentaries, talking-head and motion design work.">
+
+<!--
+=====================================================================
+  EASY EDIT GUIDE
+  All your text, stats, links and image file names live in the
+  CONFIG object below (id="site-config"). Change what's between the
+  quotes and save. Images referenced by filename live in /assets —
+  swap a file for a new one with the SAME NAME to replace a photo.
+  Don't touch anything below "DO NOT EDIT BELOW".
+=====================================================================
+-->
+
+<style>
+  :root{
+    --bg:#0a0b0d;
+    --bg-soft:#111318;
+    --panel:#161920;
+    --line:rgba(255,255,255,0.09);
+    --text:#f2f4f6;
+    --text-dim:#98a1ac;
+    --blue:#2f6bff;
+    --red:#e8455c;
+    --grad: linear-gradient(120deg, var(--blue), #7c5cff);
+    --radius:16px;
+    --maxw:1220px;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+  html[data-theme="light"]{
+    --bg:#ffffff;
+    --bg-soft:#f5f6f8;
+    --panel:#ffffff;
+    --line:rgba(10,11,13,0.1);
+    --text:#0e1013;
+    --text-dim:#5a6472;
+  }
+  html[data-theme="light"] .btn-ghost{background:rgba(10,11,13,0.03);}
+  .theme-toggle{
+    display:flex; align-items:center; justify-content:center;
+    width:38px; height:38px; border-radius:50%;
+    border:1px solid var(--line); background:var(--bg-soft);
+    color:var(--text); cursor:pointer; transition:background .2s, transform .2s;
+    flex-shrink:0;
+  }
+  .theme-toggle:hover{transform:scale(1.06);}
+  .theme-toggle svg{width:18px; height:18px;}
+  .theme-toggle .icon-moon{display:none;}
+  html[data-theme="light"] .theme-toggle .icon-sun{display:none;}
+  html[data-theme="light"] .theme-toggle .icon-moon{display:block;}
+
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.6; overflow-x:hidden;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:0.75rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--blue); display:flex; align-items:center; gap:10px; margin-bottom:14px;
+  }
+  .eyebrow::before{content:''; width:22px; height:1px; background:var(--blue);}
+  h1,h2,h3{font-family:var(--serif); font-weight:600; line-height:1.08; letter-spacing:-0.01em;}
+  section{padding:110px 0;}
+  @media(max-width:768px){ section{padding:64px 0;} }
+
+  /* ---------- NAV ---------- */
+  header{position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(10,11,13,0.72); backdrop-filter:blur(14px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:var(--maxw); margin:0 auto;}
+  .nav-logo img{height:34px; width:auto;}
+  .nav ul{list-style:none; display:flex; gap:34px;}
+  .nav ul a{font-size:0.92rem; color:var(--text-dim); transition:color .2s;}
+  .nav ul a:hover{color:var(--text);}
+  .nav-cta{font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:100px; background:var(--grad); color:#fff;}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:10px; margin:-10px;}
+  .burger span{width:22px; height:2px; background:var(--text); transition:transform .2s, opacity .2s;}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  body.menu-open{overflow:hidden;}
+  @media(max-width:820px){
+    .nav{padding:10px 18px;}
+    .nav-logo img{height:28px;}
+    .nav ul{display:none !important;}
+    .nav-cta{display:none !important;}
+    .burger{display:flex !important;}
+    .nav ul.open{display:flex !important; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--bg-soft); padding:22px 24px; gap:4px; border-bottom:1px solid var(--line); box-shadow:0 16px 32px rgba(0,0,0,0.25); z-index:200;}
+    .nav ul.open li{border-bottom:1px solid var(--line);}
+    .nav ul.open li:last-child{border-bottom:none;}
+    .nav ul.open a{font-size:1rem; display:block; padding:14px 4px;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative; min-height:100vh; display:flex; align-items:center; padding:140px 0 80px; overflow:hidden;}
+  img{-webkit-user-drag:none; user-select:none; -webkit-touch-callout:none;}
+  .hero-bg{position:absolute; inset:0; z-index:0; overflow:hidden;}
+  .hero-bg img{position:absolute; left:0; top:-12%; width:100%; height:124%; object-fit:cover; opacity:0; filter:saturate(0.9); transition:opacity 1.6s ease; will-change:transform;}
+  .hero-bg img.active{opacity:0.34;}
+  .hero-bg::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,11,13,0.55) 0%, rgba(10,11,13,0.75) 60%, var(--bg) 100%); z-index:1;}
+  .hero-inner{position:relative; z-index:1; max-width:900px;}
+  .hero h1{font-size:clamp(2.4rem, 5.6vw, 4.4rem); margin-bottom:26px;}
+  .hero h1 em{font-style:italic; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .hero p.lead{color:var(--text-dim); font-size:1.14rem; max-width:640px; margin:0 auto 36px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; justify-content:center;}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:15px 28px; border-radius:100px; font-weight:600; font-size:0.95rem; transition:transform .2s, opacity .2s, border-color .2s; cursor:pointer; border:none;}
+  .btn-primary{background:var(--grad); color:#fff;}
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-red{background:var(--red); color:#fff;}
+  .btn-red:hover{transform:translateY(-2px);}
+  .btn-ghost{border:1px solid var(--line); color:var(--text); background:rgba(255,255,255,0.03);}
+  .btn-ghost:hover{border-color:var(--blue);}
+  .hero-inner{text-align:center; margin:0 auto;}
+  .hero-inner .eyebrow{justify-content:center;}
+
+  /* ---------- STATS ---------- */
+  .stats{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--bg-soft); position:relative; overflow:hidden;}
+  .stats-bg{position:absolute; inset:0; overflow:hidden;}
+  .stats-bg img{position:absolute; left:0; top:-12%; width:100%; height:124%; object-fit:cover; opacity:0.22; will-change:transform;}
+  .stats-bg::after{content:''; position:absolute; inset:0; background:rgba(10,11,13,0.55);}
+  .stats-grid{position:relative; z-index:1; display:grid; grid-template-columns:repeat(4,1fr); gap:20px; text-align:center;}
+  @media(max-width:700px){ .stats-grid{grid-template-columns:repeat(2,1fr);} }
+  .stat-num{font-family:var(--serif); font-size:clamp(1.8rem,4vw,2.7rem); font-weight:700; color:var(--blue);}
+  .stat-label{color:var(--text-dim); font-size:0.85rem; margin-top:6px;}
+
+  /* ---------- ABOUT / JOURNEY ---------- */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  @media(max-width:900px){ .about-grid{grid-template-columns:1fr; gap:36px;} }
+  .about-imgs{position:relative;}
+  .about-imgs img{border-radius:var(--radius); border:1px solid var(--line); width:100%; height:100%; object-fit:cover; aspect-ratio:4/5;}
+  .about-text p{color:var(--text-dim); margin-bottom:16px; font-size:1.02rem;}
+  .about-text strong{color:var(--text);}
+  .contact-mini{display:flex; gap:26px; flex-wrap:wrap; margin:26px 0; font-size:0.95rem;}
+  .contact-mini a{display:flex; align-items:center; gap:8px; color:var(--text);}
+  .contact-mini a:hover{color:var(--blue);}
+
+  /* ---------- SECTION HEAD ---------- */
+  .sec-head{max-width:640px; margin-bottom:52px;}
+  .sec-head.center{margin-left:auto; margin-right:auto; text-align:center;}
+  .sec-head h2{font-size:clamp(1.8rem,3.5vw,2.6rem);}
+  .sec-head p{color:var(--text-dim); margin-top:14px; font-size:1.02rem;}
+
+  /* ---------- SERVICES ---------- */
+  .services{position:relative; background:var(--bg-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden;}
+  .services-bg{position:absolute; inset:0; overflow:hidden;}
+  .services-bg img{position:absolute; left:0; top:-12%; width:100%; height:124%; object-fit:cover; opacity:0.16; will-change:transform;}
+  .services-bg::after{content:''; position:absolute; inset:0; background:rgba(10,11,13,0.5);}
+  .services-grid{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media(max-width:860px){ .services-grid{grid-template-columns:1fr;} }
+  .service-card{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:34px; transition:border-color .2s, transform .2s;}
+  .service-card:hover{border-color:var(--blue); transform:translateY(-4px);}
+  .service-num{font-family:var(--mono); color:var(--blue); font-size:0.8rem; margin-bottom:18px; display:block;}
+  .service-card h3{font-size:1.25rem; margin-bottom:12px;}
+  .service-card p{color:var(--text-dim); font-size:0.95rem;}
+
+  /* ---------- WORK / PORTFOLIO ---------- */
+  .work-links{text-align:center; margin-top:0; margin-bottom:50px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+  .work-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media(max-width:900px){ .work-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:600px){ .work-grid{grid-template-columns:1fr;} }
+  .work-card{position:relative; border-radius:var(--radius); overflow:hidden; aspect-ratio:4/5; background:var(--panel); border:1px solid var(--line); cursor:pointer;}
+  .work-card img{width:100%; height:100%; object-fit:cover; transition:transform .5s;}
+  .work-card:hover img{transform:scale(1.06);}
+  .work-overlay{position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:16px; background:linear-gradient(0deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.18) 40%, transparent 75%);}
+  .work-cat{font-family:var(--mono); font-size:0.72rem; color:#fff; text-transform:uppercase; letter-spacing:.08em; font-weight:600; text-shadow:0 1px 4px rgba(0,0,0,0.6);}
+    .play-btn{position:absolute; top:18px; right:18px; width:38px; height:38px; border-radius:50%; background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.3); display:flex; align-items:center; justify-content:center; backdrop-filter:blur(4px);}
+  .play-btn::after{content:''; width:0; height:0; border-left:9px solid #fff; border-top:6px solid transparent; border-bottom:6px solid transparent; margin-left:2px;}
+  .work-group{margin-top:64px;}
+  .work-group:first-child{margin-top:0;}
+
+  /* ---------- REELS (Vimeo) ---------- */
+  .reels-section{margin-top:80px;}
+  .reel-block{margin-bottom:52px;}
+  .reel-block:last-child{margin-bottom:0;}
+  .reel-block-head{display:flex; align-items:baseline; gap:14px; margin-bottom:22px; text-align:left;}
+  .reel-block-tag{font-family:var(--mono); font-size:0.72rem; color:var(--blue); text-transform:uppercase; letter-spacing:.1em; flex:none;}
+  .reel-block-title{font-family:var(--sans); font-weight:700; font-size:1.2rem; color:var(--text); letter-spacing:-0.01em;}
+  .reel-block-line{flex:1; height:1px; background:var(--line); margin-left:4px;}
+  .reel-grid{display:grid; gap:16px;}
+  .reel-grid.vertical{grid-template-columns:repeat(4,1fr);}
+  .reel-grid.square{grid-template-columns:repeat(4,1fr);}
+  .reel-grid.longform{grid-template-columns:repeat(3,1fr);}
+  @media(max-width:900px){
+    .reel-grid.vertical{grid-template-columns:repeat(3,1fr);}
+    .reel-grid.square{grid-template-columns:repeat(3,1fr);}
+    .reel-grid.longform{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(max-width:600px){
+    .reel-grid.vertical{grid-template-columns:repeat(2,1fr); gap:10px;}
+    .reel-grid.square{grid-template-columns:repeat(2,1fr); gap:10px;}
+    .reel-grid.longform{grid-template-columns:1fr; gap:14px;}
+  }
+  .reel-card{position:relative; border-radius:12px; overflow:hidden; background:var(--panel); border:1px solid var(--line); cursor:pointer;}
+  .reel-card img{width:100%; height:100%; object-fit:cover; transition:transform .5s; display:block;}
+  .reel-card:hover img{transform:scale(1.06);}
+  .reel-card.vertical{aspect-ratio:9/16;}
+  .reel-card.square{aspect-ratio:1/1;}
+  .reel-card.longform{aspect-ratio:16/9;}
+  .reel-play{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:linear-gradient(0deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.05) 45%, rgba(0,0,0,0.25) 100%);}
+  .reel-play::after{content:''; width:0; height:0; border-left:14px solid #fff; border-top:9px solid transparent; border-bottom:9px solid transparent; margin-left:3px; filter:drop-shadow(0 2px 6px rgba(0,0,0,0.5));}
+
+  /* ---------- TOOLS / SKILLS ---------- */
+  .tools{background:var(--bg-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .tools-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px 60px;}
+  @media(max-width:800px){ .tools-grid{grid-template-columns:1fr;} }
+  .skill-row{margin-bottom:22px;}
+  .skill-top{display:flex; justify-content:space-between; margin-bottom:8px; font-size:0.92rem;}
+  .skill-top span:last-child{color:var(--blue); font-family:var(--mono); font-size:0.82rem;}
+  .skill-bar{height:8px; border-radius:100px; background:var(--panel); overflow:hidden; border:1px solid var(--line);}
+  .skill-fill{height:100%; border-radius:100px; background:var(--grad); width:0; transition:width 1.4s cubic-bezier(.2,.8,.2,1);}
+
+  /* ---------- CLIENTS ---------- */
+  .clients-track{display:flex; flex-wrap:wrap; gap:16px; justify-content:center;}
+  .client-pill{padding:10px 20px; border:1px solid var(--line); border-radius:100px; color:var(--text-dim); font-size:0.88rem; font-family:var(--mono);}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--bg-soft); border-top:1px solid var(--line); position:relative; overflow:hidden;}
+  .contact-bg{position:absolute; inset:0; overflow:hidden;}
+  .contact-bg img{position:absolute; left:0; top:-12%; width:100%; height:124%; object-fit:cover; opacity:0.14; will-change:transform;}
+  .contact-bg::after{content:''; position:absolute; inset:0; background:rgba(10,11,13,0.6);}
+  .contact-inner{position:relative; z-index:1; text-align:center; max-width:680px; margin:0 auto;}
+  .contact h2{font-size:clamp(2rem,4vw,3rem); margin-bottom:18px;}
+  .contact p{color:var(--text-dim); margin-bottom:20px; font-size:1.05rem;}
+  .contact-details{display:flex; gap:30px; justify-content:center; flex-wrap:wrap; margin-bottom:30px; font-size:0.98rem;}
+  .contact-details a{display:flex; align-items:center; gap:8px;}
+  .contact-details a:hover{color:var(--blue);}
+  .contact-actions{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+
+  footer{padding:36px 0; border-top:1px solid var(--line);}
+  .footer-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;}
+  .footer-inner p{color:var(--text-dim); font-size:0.85rem;}
+  .footer-links{display:flex; gap:20px;}
+  .footer-links a{color:var(--text-dim); font-size:0.85rem; transition:color .2s;}
+  .footer-links a:hover{color:var(--blue);}
+
+  /* ---------- MODAL (video) ---------- */
+  .modal{position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:200; display:none; align-items:center; justify-content:center; padding:24px;}
+  .modal.open{display:flex;}
+  .modal-box{width:100%; max-width:900px; aspect-ratio:16/9; background:#000; border-radius:12px; overflow:hidden; position:relative; transition:max-width .2s, aspect-ratio .2s;}
+  .modal-box.is-vertical{max-width:400px; aspect-ratio:9/16;}
+  .modal-box.is-square{max-width:640px; aspect-ratio:1/1;}
+  @media(max-width:600px){ .modal-box.is-vertical{max-width:90vw;} .modal-box.is-square{max-width:90vw;} }
+  .modal-box iframe{width:100%; height:100%; border:0;}
+  .modal-close{position:absolute; top:-46px; right:0; background:none; border:none; color:#fff; font-size:1.8rem; cursor:pointer;}
+  .scroll-progress{position:fixed; top:0; left:0; height:3px; width:0%; background:var(--grad); z-index:300; transition:width .1s linear;}
+  .float-actions{position:fixed; right:22px; bottom:22px; display:flex; flex-direction:column; gap:12px; z-index:150;}
+  .float-btn{width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(0,0,0,0.35); border:1px solid var(--line); cursor:pointer; transition:transform .2s, opacity .2s; opacity:0; pointer-events:none; transform:translateY(10px);}
+  .float-btn.show{opacity:1; pointer-events:auto; transform:translateY(0);}
+  .float-btn:hover{transform:translateY(-3px);}
+  .float-whatsapp{background:#25D366; color:#fff; border:none; opacity:1; pointer-events:auto; transform:none;}
+  .float-top{background:var(--panel); color:var(--text);}
+  .float-btn svg{width:20px; height:20px;}
+
+  [data-reveal]{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  [data-reveal].visible{opacity:1; transform:none;}
+
+  ::selection{background:var(--blue); color:#fff;}
+
+  /* ---------- CUSTOM CURSOR ---------- */
+  @media(hover:hover) and (pointer:fine){
+    body{cursor:none;}
+    a, button, .work-card, .reel-card, .filter-btn, .theme-toggle, .burger{cursor:none;}
+  }
+  .cursor-dot, .cursor-ring{position:fixed; top:0; left:0; z-index:400; pointer-events:none; border-radius:50%; transform:translate(-50%,-50%); will-change:transform;}
+  .cursor-dot{width:6px; height:6px; background:var(--blue); transition:opacity .2s, background .2s;}
+  .cursor-ring{width:34px; height:34px; border:1px solid rgba(47,107,255,0.55); transition:width .25s ease, height .25s ease, border-color .25s ease, background .25s ease, opacity .2s;}
+  .cursor-ring.hovered{width:56px; height:56px; background:rgba(47,107,255,0.12); border-color:var(--blue);}
+  .cursor-ring.clicked{width:26px; height:26px;}
+  .cursor-dot.hidden, .cursor-ring.hidden{opacity:0;}
+  @media(hover:none), (pointer:coarse){
+    .cursor-dot, .cursor-ring{display:none;}
+  }
+</style>
+</head>
+<body>
+
+
+<style>
+  .portfolio-hero{padding:200px 0 60px; text-align:center;}
+  @media(max-width:820px){ .portfolio-hero{padding:120px 0 40px;} }
+  .portfolio-hero h1{font-size:clamp(2rem,4.5vw,3.2rem); margin-bottom:16px;}
+  .portfolio-hero p{color:var(--text-dim); max-width:600px; margin:0 auto; font-size:1.05rem;}
+  .filters{display:flex; gap:14px; flex-wrap:wrap; margin:36px 0 56px; justify-content:center;}
+  .filter-btn{padding:16px 32px; border-radius:100px; border:1.5px solid var(--line); background:var(--panel); color:var(--text-dim); font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .25s ease; font-family:var(--mono); text-transform:uppercase; letter-spacing:.08em; box-shadow:0 2px 10px rgba(0,0,0,0.15);}
+  .filter-btn:hover{border-color:var(--blue); color:var(--text); background:rgba(47,107,255,0.12); transform:translateY(-2px); box-shadow:0 6px 18px rgba(47,107,255,0.18);}
+  .filter-btn.active{border-color:var(--blue); color:#fff; background:linear-gradient(135deg, var(--blue), #4d84ff); box-shadow:0 6px 20px rgba(47,107,255,0.4); transform:translateY(-1px);}
+  @media(max-width:600px){ .filter-btn{padding:12px 20px; font-size:0.8rem;} .filters{gap:10px;} }
+  .work-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media(max-width:900px){ .work-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:600px){ .work-grid{grid-template-columns:1fr;} }
+  .work-card{position:relative; border-radius:var(--radius); overflow:hidden; aspect-ratio:4/5; background:var(--panel); border:1px solid var(--line); cursor:pointer;}
+  .work-card img{width:100%; height:100%; object-fit:cover; transition:transform .5s;}
+  .work-card:hover img{transform:scale(1.06);}
+  .work-overlay{position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:16px; background:linear-gradient(0deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.18) 40%, transparent 75%);}
+  .work-cat{font-family:var(--mono); font-size:0.72rem; color:#fff; text-transform:uppercase; letter-spacing:.08em; font-weight:600; text-shadow:0 1px 4px rgba(0,0,0,0.6);}
+    .play-btn{position:absolute; top:18px; right:18px; width:38px; height:38px; border-radius:50%; background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.3); display:flex; align-items:center; justify-content:center; backdrop-filter:blur(4px);}
+  .play-btn::after{content:''; width:0; height:0; border-left:9px solid #fff; border-top:6px solid transparent; border-bottom:6px solid transparent; margin-left:2px;}
+  .work-group{margin-bottom:80px;}
+  .work-group-head{display:flex; align-items:baseline; gap:14px; margin-bottom:28px; text-align:left;}
+  .work-group-tag{font-family:var(--mono); font-size:0.72rem; color:var(--blue); text-transform:uppercase; letter-spacing:.1em; flex:none;}
+  .work-group-title{font-family:var(--sans); font-weight:700; font-size:1.3rem; color:var(--text); text-align:left; letter-spacing:-0.01em;}
+  .work-group-line{flex:1; height:1px; background:var(--line); margin-left:4px;}
+  [data-reveal]{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  [data-reveal].visible{opacity:1; transform:none;}
+</style>
+
+<script id="portfolio-config">
+window.PORTFOLIO = {
+  name: "Mohammad Moontasir",
+  logo: "assets/logo.png",
+  socials: {
+    linkedin: "https://linkedin.com/",
+    instagram: "https://instagram.com/",
+    facebook: "https://facebook.com/",
+    youtube: "https://youtube.com/",
+    dribbble: "https://dribbble.com/",
+    behance: "https://www.behance.net/"
+  },
+
+  // ---------------------------------------------------------------------
+  // SINGLE FLAT LIST — every video lives here now (old "groups" removed).
+  // Each item has exactly two tags:
+  //   category → ONE OF: "Talking Head" | "Cinematic Documentary" | "Faceless AI & Motion Graphic"
+  //              (controls the 3 filter buttons at the top of the page)
+  //   aspect   → ONE OF: "vertical" | "square" | "longform"
+  //              (controls which section — Vertical / Square / Long-Form — the card falls into)
+  // To move a video, just change its category or aspect value. To add a video,
+  // copy a line and edit it. video = Vimeo player embed URL or YouTube embed URL.
+  //
+  // NOTE FROM CLAUDE: items marked  // ASSUMED  had no clear category signal in
+  // the old data (generic "Reel 1", "Square 3", etc titles) — I made a best-guess
+  // placeholder category so nothing broke, but you should correct these.
+  // Items confirmed against the talking-head screenshots you sent are marked // CONFIRMED.
+  // ---------------------------------------------------------------------
+  items: [
+    // ---- Talking Head (confirmed from your screenshots) ----
+    { title: "Talking Head Shorts — TikTok Style 1", category: "Talking Head", aspect: "vertical", video: "https://player.vimeo.com/video/1216387789?h=81a7d9159f", thumb: "https://i.vimeocdn.com/video/2187816801-8ee1a66a032d9010309337bf2903319271788bad9f09e3f77dc64acb8b1e323b-d_960" },
+    { title: "Talking Head Shorts — TikTok Style 2", category: "Talking Head", aspect: "vertical", video: "https://player.vimeo.com/video/1216387788?h=b3366e2059", thumb: "https://i.vimeocdn.com/video/2187816062-60ff01befdfb4bdd028bef7da0fd23708e1879227931d91336e867b0acf903bb-d_960" },
+    { title: "Talking Head Shorts — TikTok Style 3", category: "Talking Head", aspect: "vertical", video: "https://player.vimeo.com/video/1216388365?h=944154e288", thumb: "https://i.vimeocdn.com/video/2187815395-756adbe42e84b2a2f228a1c14d8e4f580043c180df9a6071135b9535a151ae1c-d_960" },
+    { title: "Talking Head Shorts — TikTok Style 4", category: "Talking Head", aspect: "vertical", video: "https://player.vimeo.com/video/1216387787?h=f32d7607fa", thumb: "https://i.vimeocdn.com/video/2187815281-dd12509b3a562129f60820f2d6db809d19a4d7c85a7c857434cd86523392a79e-d_960" },
+    { title: "Talking Head 16:9 — 1", category: "Talking Head", aspect: "longform", video: "https://player.vimeo.com/video/1216384510?h=db18ad8309", thumb: "https://i.vimeocdn.com/video/2187801919-e89ddc0fd9e4e5297ac74f31777ae4ea3666a51f415b6495b0a0ca497a9a5c7e-d_960" },
+    { title: "Talking Head 16:9 — 2", category: "Talking Head", aspect: "longform", video: "https://player.vimeo.com/video/1216383385?h=ad89c382f7", thumb: "https://i.vimeocdn.com/video/2187800132-16f07febde49df2249f2d289aed595b0ffd7759ac2308f285f7464fff65ff05d-d_960" },
+
+    // ---- Cinematic Documentary ----
+
+    // ---- Faceless AI & Motion Graphic ----
+    { title: "Reel 1", category: "Faceless AI & Motion Graphic", aspect: "vertical", video: "https://player.vimeo.com/video/1144863984?h=eea941d52e", thumb: "https://i.vimeocdn.com/video/2093605874-bc3ce3e36d36071e646b4a63d1a3696f466ff3eba1c67b1df3c7794be609e1be-d_960" }, // ASSUMED
+    { title: "Reel 2", category: "Faceless AI & Motion Graphic", aspect: "vertical", video: "https://player.vimeo.com/video/1144854996?h=123e3ccf1d", thumb: "https://i.vimeocdn.com/video/2093593787-22a0903db0eb0599200f8bea33ff04e650d1725debe02258c663eba16a87b5e7-d_960" }, // ASSUMED
+    { title: "Reel 3", category: "Faceless AI & Motion Graphic", aspect: "vertical", video: "https://player.vimeo.com/video/1144853445?h=5fea8672d1", thumb: "https://i.vimeocdn.com/video/2093591458-79cd82ae0f792f6ebe8a49a10a71177795f7d73e36ffa82dcb173109d0328ff5-d_960" }, // ASSUMED
+    { title: "Reel 4", category: "Faceless AI & Motion Graphic", aspect: "vertical", video: "https://player.vimeo.com/video/1216511622?h=2557bff373", thumb: "https://i.vimeocdn.com/video/2187964807-d56a6d6ca870fa80718de3a37fef25ba05ee289b938770fc006e3536a474755d-d_960" },
+    { title: "Square 1", category: "Talking Head", aspect: "square", video: "https://player.vimeo.com/video/1145371344?h=9fe3410adf", thumb: "https://i.vimeocdn.com/video/2094309723-9a27d31c4376e9cfa70e467f340b5f26414fc55987f9235b4e879c680d6960d2-d_960" }, // ASSUMED
+    { title: "Square 2", category: "Faceless AI & Motion Graphic", aspect: "square", video: "https://player.vimeo.com/video/1144819380?h=a9095192c9", thumb: "https://i.vimeocdn.com/video/2093544640-c65593fa91f7b6b6d2c0fd61775c0770f599d9f6df3857559bc0b900e24bee1f-d_960" }, // ASSUMED
+    { title: "Square 3", category: "Faceless AI & Motion Graphic", aspect: "square", video: "https://player.vimeo.com/video/1144810823?h=0fa45be90e", thumb: "https://i.vimeocdn.com/video/2093535137-e8cdfa3bc1a70ab60cf4ea612dbbcdc1610a8fc5aa50455ff4347ed38f5beb22-d_960" }, // ASSUMED
+    { title: "Square 4", category: "Faceless AI & Motion Graphic", aspect: "square", video: "https://player.vimeo.com/video/1144803237?h=fa7d206613", thumb: "https://i.vimeocdn.com/video/2093524602-e6b7edd38679e3117dcdb8ea1183b969e11362871c98847277af06b173bbc2db-d_960" }, // ASSUMED
+    { title: "Square 5", category: "Faceless AI & Motion Graphic", aspect: "square", video: "https://player.vimeo.com/video/1144797739?h=b37db42a70", thumb: "https://i.vimeocdn.com/video/2093527197-a8239963c0b6059bf83abd9a7aa934aa4124ad95099ba5fc8fcdb140f3f0bd64-d_960" }, // ASSUMED
+    { title: "Square 7", category: "Talking Head", aspect: "square", video: "https://player.vimeo.com/video/1144771895?h=a950128e9b", thumb: "https://i.vimeocdn.com/video/2093483450-d7057bab19651e71ce48dbb614e1dc0274e1ccbaad4dcc0ea0493788aa65eca7-d_960" }, // ASSUMED
+    { title: "Square 8", category: "Talking Head", aspect: "square", video: "https://player.vimeo.com/video/1144765233?h=111bd6a0d0", thumb: "https://i.vimeocdn.com/video/2093471872-b9b4155ad7f287fbb983cfe6ecfabfd36f9e8ec91442d144a393b52cc802c828-d_960" }, // ASSUMED
+    { title: "Square 9", category: "Talking Head", aspect: "square", video: "https://player.vimeo.com/video/1144759500?h=53e2a7a323", thumb: "https://i.vimeocdn.com/video/2093465345-a67e0a3aa3a5f5dc236ac51f64fb18c29602457c69e4bd4664400b2885123920-d_960" }, // ASSUMED
+    { title: "Long Form 1", category: "Talking Head", aspect: "longform", video: "https://player.vimeo.com/video/1145362190?h=70b36b5e81", thumb: "https://i.vimeocdn.com/video/2094298750-7fb7401ebfd6ae38ade46c881f7db6d0cad3544eff7db842a3feb7f332117372-d_960" }, // ASSUMED
+    { title: "Long Form 2", category: "Cinematic Documentary", aspect: "longform", video: "https://player.vimeo.com/video/1147215955?h=5989a62be5", thumb: "https://i.vimeocdn.com/video/2096922684-5faf7768a5517c06d9a5b4aae8d274be7d64927d03e029ddfafcaa10658815ae-d_960" }, // ASSUMED
+    { title: "YouTube Video 1", category: "Cinematic Documentary", aspect: "longform", video: "https://www.youtube.com/embed/6IZMDc0CCiM", thumb: "https://img.youtube.com/vi/6IZMDc0CCiM/hqdefault.jpg" }, // ASSUMED
+    { title: "YouTube Video 2", category: "Cinematic Documentary", aspect: "longform", video: "https://www.youtube.com/embed/spvKLbvCTCg", thumb: "https://img.youtube.com/vi/spvKLbvCTCg/hqdefault.jpg" }, // ASSUMED
+    { title: "YouTube Video 3", category: "Cinematic Documentary", aspect: "longform", video: "https://www.youtube.com/embed/F4j4bS6xVkk", thumb: "https://img.youtube.com/vi/F4j4bS6xVkk/hqdefault.jpg" }, // ASSUMED
+    { title: "YouTube Video 4", category: "Cinematic Documentary", aspect: "longform", video: "https://www.youtube.com/embed/Uw7qTJjEsA8", thumb: "https://img.youtube.com/vi/Uw7qTJjEsA8/hqdefault.jpg" }, // ASSUMED
+    { title: "YouTube Video 5", category: "Cinematic Documentary", aspect: "longform", video: "https://www.youtube.com/embed/-XdFRn2jH0Q", thumb: "https://img.youtube.com/vi/-XdFRn2jH0Q/hqdefault.jpg" },
+    { title: "YouTube Video 6", category: "Faceless AI & Motion Graphic", aspect: "longform", video: "https://www.youtube.com/embed/ro0Mg_eOgVY", thumb: "https://img.youtube.com/vi/ro0Mg_eOgVY/hqdefault.jpg" },
+    { title: "YouTube Video 7", category: "Faceless AI & Motion Graphic", aspect: "longform", video: "https://www.youtube.com/embed/fJSDJkmPC-Q", thumb: "https://img.youtube.com/vi/fJSDJkmPC-Q/hqdefault.jpg" },
+    { title: "YouTube Video 8", category: "Faceless AI & Motion Graphic", aspect: "longform", video: "https://www.youtube.com/embed/2RwaRTIPBog", thumb: "https://img.youtube.com/vi/2RwaRTIPBog/hqdefault.jpg" },
+    { title: "YouTube Video 9", category: "Faceless AI & Motion Graphic", aspect: "longform", video: "https://www.youtube.com/embed/VsBofGpNJiA", thumb: "https://img.youtube.com/vi/VsBofGpNJiA/hqdefault.jpg" },
+    { title: "YouTube Video 10", category: "Faceless AI & Motion Graphic", aspect: "longform", video: "https://www.youtube.com/embed/gKBC2pLVbcY", thumb: "https://img.youtube.com/vi/gKBC2pLVbcY/hqdefault.jpg" },
+    { title: "YouTube Video 11", category: "Faceless AI & Motion Graphic", aspect: "longform", video: "https://www.youtube.com/embed/zjgwrs9-Q0M", thumb: "https://img.youtube.com/vi/zjgwrs9-Q0M/hqdefault.jpg" }
+  ]
+};
+</script>
+<!-- ===================== DO NOT EDIT BELOW THIS LINE ===================== -->
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="cursor-dot hidden" id="cursorDot"></div>
+<div class="cursor-ring hidden" id="cursorRing"></div>
+
+<header>
+  <div class="nav wrap">
+    <a class="nav-logo" href="index.html"><img id="nav-logo-img" src="" alt="Logo"></a>
+    <ul id="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#work">Home</a></li>
+      <li><a href="portfolio.html">Full Portfolio</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" id="nav-cta" href="index.html#contact">Let's talk</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="portfolio-hero wrap" data-reveal>
+  <div class="eyebrow" style="justify-content:center;">Full Portfolio</div>
+  <h1>All My Work, Categorized</h1>
+  <p>Talking head, cinematic documentary, and faceless AI &amp; motion graphic work — organized by format so you can find the shape of video you need.</p>
+</section>
+
+<section class="wrap" style="padding-top:0; padding-bottom:120px;">
+  <div class="filters" id="filters"></div>
+
+  <div class="reels-section" id="reels-section"></div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <p id="footer-name"></p>
+    <div class="footer-links" id="footer-links"></div>
+  </div>
+</footer>
+
+<div class="float-actions">
+  <a class="float-btn float-whatsapp" id="floatWhatsapp" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.15c-.24.68-1.4 1.3-1.93 1.38-.49.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.55-1.16-2.96 0-1.4.74-2.09 1-2.38.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.28-.12.56.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.61-.07.16-.19.7-.81.89-1.09.19-.28.37-.23.63-.14.26.1 1.65.78 1.94.92.28.14.47.21.54.33.07.12.07.66-.17 1.35z"></path></svg>
+  </a>
+  <button class="float-btn float-top" id="floatTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+  </button>
+</div>
+
+<div class="modal" id="videoModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <iframe id="modalFrame" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+const P = window.PORTFOLIO;
+
+document.getElementById('nav-logo-img').src = P.logo;
+document.getElementById('footer-name').textContent = '© ' + new Date().getFullYear() + ' ' + P.name + '. All rights reserved.';
+document.getElementById('footer-links').innerHTML = `
+  <a href="${P.socials.youtube}" target="_blank" rel="noopener">YouTube</a>
+  <a href="${P.socials.facebook}" target="_blank" rel="noopener">Facebook</a>
+  <a href="${P.socials.instagram}" target="_blank" rel="noopener">Instagram</a>
+`;
+
+// ---- Category filter buttons (the 3 fixed categories, no longer derived from data) ----
+const CATEGORIES = ["All", "Talking Head", "Cinematic Documentary", "Faceless AI & Motion Graphic"];
+document.getElementById('filters').innerHTML = CATEGORIES.map((c,i) => `
+  <button class="filter-btn ${i===0?'active':''}" data-cat="${c}">${c}</button>
+`).join('');
+
+// ---- Single render: groups everything by ASPECT RATIO, filtered by selected category ----
+const ASPECT_ROWS = [
+  { key:"vertical", tag:"Reels",     label:"Vertical Shorts (9:16)" },
+  { key:"longform", tag:"Long Form", label:"Long-Form (16:9)" },
+  { key:"square",   tag:"Square",    label:"Square Cuts (1:1)" }
+];
+
+function renderItems(filterCat){
+  const wrap = document.getElementById('reels-section');
+
+  const items = filterCat === 'All' ? P.items : P.items.filter(i => i.category === filterCat);
+
+  wrap.innerHTML = ASPECT_ROWS.map(row => {
+    const rowItems = items.filter(i => i.aspect === row.key);
+    if(!rowItems.length) return '';
+    return `
+      <div class="reel-block" data-reveal>
+        <div class="reel-block-head">
+          <span class="reel-block-tag">${row.tag}</span>
+          <span class="reel-block-title">${row.label}</span>
+          <span class="reel-block-line"></span>
+        </div>
+        <div class="reel-grid ${row.key}">
+          ${rowItems.map(it => `
+            <div class="reel-card ${row.key}" data-video="${it.video}" data-aspect="${row.key}" data-reveal>
+              <img src="${it.thumb || it.img}" alt="${it.title}" loading="lazy" decoding="async">
+              <div class="reel-play"></div>
+              <div class="work-overlay">
+                <div class="work-cat">${it.category}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  if(!items.length){
+    wrap.innerHTML = `<p style="text-align:center; opacity:.6; padding:60px 0;">No videos in this category yet.</p>`;
+  }
+
+  initReveal();
+}
+renderItems('All');
+
+document.getElementById('filters').addEventListener('click', (e) => {
+  const btn = e.target.closest('.filter-btn');
+  if(!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderItems(btn.dataset.cat);
+});
+
+(function(){
+  const root = document.documentElement;
+  const stored = localStorage.getItem('theme');
+  if(stored){ root.setAttribute('data-theme', stored); }
+  const toggleBtn = document.getElementById('themeToggle');
+  if(toggleBtn){
+    toggleBtn.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      if(next === 'dark'){ root.removeAttribute('data-theme'); } else { root.setAttribute('data-theme', 'light'); }
+      localStorage.setItem('theme', next);
+    });
+  }
+})();
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('nav-links');
+burger.addEventListener('click', () => { navLinks.classList.toggle('open'); burger.classList.toggle('open'); document.body.classList.toggle('menu-open'); });
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { navLinks.classList.remove('open'); burger.classList.remove('open'); document.body.classList.remove('menu-open'); }));
+
+document.getElementById('floatWhatsapp').href = 'https://wa.me/8801601706017';
+const progressBar = document.getElementById('scrollProgress');
+const floatTop = document.getElementById('floatTop');
+function onScroll(){
+  const h = document.documentElement;
+  const scrolled = h.scrollTop;
+  const max = h.scrollHeight - h.clientHeight;
+  progressBar.style.width = (max > 0 ? (scrolled / max) * 100 : 0) + '%';
+  floatTop.classList.toggle('show', scrolled > 480);
+}
+document.addEventListener('scroll', onScroll, { passive:true });
+onScroll();
+floatTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+
+// ---- Custom dynamic cursor ----
+(function(){
+  if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  let mx = window.innerWidth/2, my = window.innerHeight/2;
+  let rx = mx, ry = my;
+  let shown = false;
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
+    if(!shown){ shown = true; dot.classList.remove('hidden'); ring.classList.remove('hidden'); }
+    dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`;
+  });
+  document.addEventListener('mouseleave', () => { dot.classList.add('hidden'); ring.classList.add('hidden'); shown = false; });
+  document.addEventListener('mousedown', () => ring.classList.add('clicked'));
+  document.addEventListener('mouseup', () => ring.classList.remove('clicked'));
+  function loop(){
+    rx += (mx - rx) * 0.16;
+    ry += (my - ry) * 0.16;
+    ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
+    requestAnimationFrame(loop);
+  }
+  loop();
+  const hoverables = 'a, button, .work-card, .reel-card, .filter-btn, .theme-toggle, .burger, input, textarea';
+  document.addEventListener('mouseover', (e) => {
+    if(e.target.closest(hoverables)) ring.classList.add('hovered');
+  });
+  document.addEventListener('mouseout', (e) => {
+    if(e.target.closest(hoverables)) ring.classList.remove('hovered');
+  });
+})();
+
+const modal = document.getElementById('videoModal');
+const modalFrame = document.getElementById('modalFrame');
+const modalBox = document.querySelector('.modal-box');
+document.addEventListener('click', (e) => {
+  const card = e.target.closest('.work-card, .reel-card');
+  if(card){
+    const sep = card.dataset.video.includes('?') ? '&' : '?';
+    modalFrame.src = card.dataset.video + sep + 'autoplay=1&title=0&byline=0&portrait=0&dnt=1';
+    modalBox.classList.remove('is-vertical', 'is-square');
+    const aspect = card.dataset.aspect;
+    if(aspect === 'vertical') modalBox.classList.add('is-vertical');
+    else if(aspect === 'square') modalBox.classList.add('is-square');
+    modal.classList.add('open');
+  }
+});
+document.getElementById('modalClose').addEventListener('click', closeModal);
+modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+function closeModal(){ modal.classList.remove('open'); modalFrame.src=''; modalBox.classList.remove('is-vertical','is-square'); }
+
+function initReveal(){
+  const revealEls = document.querySelectorAll('[data-reveal]:not(.visible)');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  revealEls.forEach(el => io.observe(el));
+}
+document.querySelector('.portfolio-hero').classList.add('visible');
+</script>
+
+<script>
+// ---- Parallax on background images ----
+(function(){
+  const layers = ['hero-bg-img','stats-bg-img','services-bg-img','contact-bg-img']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  if(!layers.length) return;
+  let ticking = false;
+  function update(){
+    const vh = window.innerHeight;
+    layers.forEach(img => {
+      const wrap = img.parentElement;
+      const host = wrap.parentElement;
+      const rect = host.getBoundingClientRect();
+      const progress = (rect.top) / (vh || 1);
+      const shift = progress * -40;
+      img.style.transform = `translate3d(0, ${shift}px, 0)`;
+    });
+    ticking = false;
+  }
+  function onScroll(){
+    if(!ticking){
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  update();
+})();
+
+// ---- Basic image protection (deter right-click save / drag-out) ----
+(function(){
+  document.addEventListener('contextmenu', function(e){
+    if(e.target.tagName === 'IMG'){ e.preventDefault(); }
+  });
+  document.addEventListener('dragstart', function(e){
+    if(e.target.tagName === 'IMG'){ e.preventDefault(); }
+  });
+  document.querySelectorAll('img').forEach(function(img){
+    img.setAttribute('draggable', 'false');
+  });
+})();
+</script>
+
+</body>
+</html>
